@@ -23,32 +23,32 @@
 >else:
 >	print('=0')
 
-2-7 #循环和字串# 从用户那里接受一个字符串输入，然后逐字符显示该字符串。先用while循环实现，然后再用 for 循环实现。
+### 2-7 #循环和字串# 从用户那里接受一个字符串输入，然后逐字符显示该字符串。先用while循环实现，然后再用 for 循环实现。
 for loop
 >strA = raw_input('>input some str: ')
 >for i in strA:print i
 >
->while loop
+while loop
 >strA = raw_input('>input some str: ')
 >counter = 0
 >while counter < len(strA):
 >	print strA[counter]
 >	counter += 1
 
-2-8 循环和运算符 创建一个包含五个固定数值的列表或元组，输出他们的和。然后修改你的代码为接受用户输入数值。 分别使用while和for 循环实现。
-L = raw_input(">input 5 numbers,split with ',': ").split(',')
+### 2-8 循环和运算符 创建一个包含五个固定数值的列表或元组，输出他们的和。然后修改你的代码为接受用户输入数值。 分别使用 while 和 for 循环实现。
+	L = raw_input(">input 5 numbers,split with ',': ").split(',')
 
-counter = 0
-i = 0
-while counter < len(L):
-	i = int(L[counter]) + i
-	print i
-	counter += 1
+	counter = 0
+	i = 0
+	while counter < len(L):
+		i = int(L[counter]) + i
+		print i
+		counter += 1
 
-s = 0
-for i in range(0, len(L)):
-	s = s + int(L[i])
-	print(s)
+	s = 0
+	for i in range(0, len(L)):
+		s = s + int(L[i])
+		print(s)
 
 2-9 循环和运算符 创建一个包含五个固定数值的列表或元组，输出他们的平均值。本练习的难点之一是通过除法得到平均值。 你会发现整数除会截去小数，因此你必须使用浮点除以得到更
 精确的结果。 float()内建函数可以帮助你实现这一功能。 
@@ -61,7 +61,7 @@ for i in range(0,len(L)):
 ave = s / len(L)
 print(ave)
 
-2-10 带循环和条件判断的用户输入 使用raw_input()函数来提示用户输入一个1和100之间的
+2-10 带循环和条件判断的用户输入 使用	raw_input()	函数来提示用户输入一个1和100之间的
 数，如果用户输入的数满足 个条 这 件，显示成功并退出。否则显示一个错误信息然后再次提示
 用户输入数值，直到满足条件为止。
 num = int(raw_input('>input a number between 1 to 100:'))

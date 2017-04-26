@@ -1,38 +1,39 @@
-# 《Python核心编程》练习题
-Chapter 2
-2-5. #循环和数字# 
+《Python核心编程》练习题
+=========================
+## Chapter 2
+### 2-5. #循环和数字# 00
 分别使用while和for 创建一个循环: 
 (a) 写一个 while 循环，输出整数从0到10。（要确保是从 0到 10，而不是从 0到9或从 1到 10） 
 (b) 做同 (a) 一样的事，不过这次使用 range() 内建函数。
 
-counter = 0
-while counter < 11:
-	print counter
-	counter += 1
+>counter = 0
+>while counter < 11:
+>	print counter
+>	counter += 1
+>
+>for i in range(0, 11):print i`
 
-for i in range(0, 11):print i
+### 2-6 #条件判断#判断一个数是正数，还是负数，或者等于 0. 开始先用固定的数值，然后修改你的代码支持用户输入数值再进行判断。
 
-2-6 #条件判断#判断一个数是正数，还是负数，或者等于 0. 开始先用固定的数值，然后修改你的代码支持用户输入数值再进行判断。
-
-numA = int(raw_input('>input a number: '))
-if numA > 0:
-	print('>0')
-elif numA < 0:
-	print('<0')
-else:
-	print('=0')
+>numA = int(raw_input('>input a number: '))
+>if numA > 0:
+>	print('>0')
+>elif numA < 0:
+>	print('<0')
+>else:
+>	print('=0')
 
 2-7 #循环和字串# 从用户那里接受一个字符串输入，然后逐字符显示该字符串。先用while循环实现，然后再用 for 循环实现。
 for loop
-strA = raw_input('>input some str: ')
-for i in strA:print i
-
-while loop
-strA = raw_input('>input some str: ')
-counter = 0
-while counter < len(strA) :
-	print strA[counter]
-	counter += 1
+>strA = raw_input('>input some str: ')
+>for i in strA:print i
+>
+>while loop
+>strA = raw_input('>input some str: ')
+>counter = 0
+>while counter < len(strA):
+>	print strA[counter]
+>	counter += 1
 
 2-8 循环和运算符 创建一个包含五个固定数值的列表或元组，输出他们的和。然后修改你的代码为接受用户输入数值。 分别使用while和for 循环实现。
 L = raw_input(">input 5 numbers,split with ',': ").split(',')

@@ -186,7 +186,23 @@ D: 60–69
 F: <60 
 
 ```python
+def grade(arg):
+	if (arg > 100 or arg < 0):
+		return 'Out of range!'
+	if arg < 60:
+		return 'F'
+	if arg >=60 and arg <= 69:
+		return 'D'
+	if arg >=70 and arg <= 79:
+		return 'C'
+	if arg >=80 and arg <= 89:
+		return 'B'
+	if arg >=90 and arg <= 100:
+		return 'A'
 
+if __name__ == '__main__':
+	myInput = float(raw_input('input you score number: '))
+	print(grade(myInput))
 ```
  
 ### 5-4 取余
@@ -196,7 +212,15 @@ F: <60
 纪是 2400 年。
 
 ```python
+def leap_year(arg):
+	if arg % 400 == 0 or (arg % 4 == 0 and arg % 100 != 0):
+		return 'leap year'
+	else:
+		return 'not leap year'
 
+if __name__ == '__main__':
+	myInput = int(raw_input('input the year: '))
+	print(leap_year(myInput))
 ```
  
 ### 5-5 取余
@@ -205,7 +229,19 @@ F: <60
 应该是 3 枚 25 美分，1 枚 1 美分。类似 76 枚 1 美分，2 枚 25 美分+2 枚 10 美分+1 枚 5 美分+1 枚 1 美分这样的结果都是不符合要求的。 
 
 ```python
+def dollar_change(arg):
+	arg_cent = int(arg * 100)
+	if arg_cent >= 100 or arg_cent <= 0:
+		return 'error'
+	else:
+		(h, a) = divmod(arg_cent, 25)
+		(i, b) = divmod(a, 10)
+		(j, k) = divmod(b, 5)
+		return [h, i, j, k]
 
+if __name__ == '__main__':
+	myInput = float(raw_input('how much dollar: '))
+	print(dollar_change(myInput))
 ```
  
 ### 5-6 算术
@@ -215,14 +251,31 @@ F: <60
 提示：可以使用字符串方法 `split()`,但不可以使用内建函数 `eval()`. 
 
 ```python
+def calc(N1, ope, N2):
+	N1, N2 = float(N1), float(N2)
+	if ope == '+':
+		return N1 + N2
+	if ope == '-':
+		return N1 - N2
+	if ope == '*':
+		return N1 * N2
+	if ope == '/':
+		return N1 / N2
+	if ope == '%':
+		return N1 % N2
+	if ope == '**':
+		return N1 ** N2
 
+if __name__ == '__main__':
+	[N1, ope, N2] = raw_input('blabla ').split(' ')
+	print(calc(N1, ope, N2))
 ```
  
 ### 5-7 营业税
 随意取一个商品金额，然后根据当地营业税额度计算应该交纳的营业税。 
 
 ```python
-
+(略)
 ```
   
 ### 5-8 几何
@@ -231,7 +284,7 @@ F: <60
 (b) 圆 和 球 
 
 ```python
-
+(略)
 ```
  
 ### 5–9  数值形式
@@ -261,7 +314,11 @@ F: <60
 应该在这个练习中使用真正的除法， 否则你会得到不正确的结果。 
 
 ```python
-
+def f_c(F):
+	return (F - 32) * (5.0 / 9)
+if __name__ == '__main__':
+	f = float(raw_input('input F:'))
+	print(f_c(f))
 ```
   
 ### 5-11 取余 
@@ -272,7 +329,30 @@ F: <60
 先要求用户输入两个数，然后你的函数判断两者是否有整除关系，根据判断结果分别返回 True 和 False; 
 
 ```python
+def odd(arg):
+	alist = []
+	for i in range(0, arg+1):
+		if  i % 2 == 0:
+			alist.append(i)
+	return alist
 
+def even(arg):
+	alist = []
+	for i in range(1, arg+1):
+		if  i % 2 == 1:
+			alist.append(i)
+	return alist
+
+def divisi(a, b):
+	if (a % b == 0) or (b % a == 0):
+		return True
+	else:
+		return False
+
+if __name__ == '__main__':
+	myInput1 = int(raw_input('input a '))
+	myInput2 = int(raw_input('input b '))
+	print(divisi(myInput1, myInput2))
 ```
   
 ### 5-12 系统限制
@@ -287,7 +367,7 @@ F: <60
 写一个函数把由小时和分钟表示的时间转换为只用分钟表示的时间。  
 
 ```python
-
+略
 ```
   
 ### 5-14 银行利息
@@ -295,7 +375,13 @@ F: <60
 算并返回年回报率。 
 
 ```python
+def ROI(rate_day):
+	rate_year = (1 + rate_day) ** 365 - 1
+	return rate_year
 
+if __name__ == '__main__':
+	myInput = float(raw_input('input daily rate '))
+	print(ROI(myInput))
 ```
   
 ### 5–15 最大公约数和最小公倍数

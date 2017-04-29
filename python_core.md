@@ -1,4 +1,4 @@
-﻿《Python核心编程》练习题
+﻿Python核心编程》练习题
 =========================
 ## Chapter 2
 ### 2-5 循环和数字
@@ -328,6 +328,7 @@ if __name__ == '__main__':
 (d) 使用(c)的成果，写一个函数，检测一个整数能否被另一个整数整除。 
 先要求用户输入两个数，然后你的函数判断两者是否有整除关系，根据判断结果分别返回 True 和 False; 
 
+
 ```python
 def odd(arg):
 	alist = []
@@ -388,9 +389,40 @@ if __name__ == '__main__':
 请计算两个整数的最大公约数和最小公倍数。 
 
 ```python
+def divisor(arg):
+	alist = []
+	for i in range(1, arg+1):
+		if arg % i == 0:
+			alist.append(i)	 
+	return alist
 
+def lcm(arg1, arg2):
+	alist, blist = divisor(arg1), divisor(arg2)
+	return max([value for value in alist if value in blist]) # 取交集
+
+def gcd(arg1, arg2):
+	return (arg1 * arg2) / lcm(arg1, arg2)
+
+if __name__ == '__main__':
+	num1 = int(raw_input('> num1: '))
+	num2 = int(raw_input('> num2: '))
+	print lcm(num1, num2)
+	print gcd(num1,num2)
 ```
-  
+以上是分解公因数法求最小公倍数，下面是辗转相除法求最大公约数：
+
+```python
+def lcm(arg1, arg2):
+	amax = max(arg1, arg2) 
+	amin = min(arg1, arg2)
+	t = amax % amin
+	while t != 0:
+		amax, amin = amin, t
+		t = amax % amin 
+	
+	return amin
+```
+
 ### 5-16 家庭财务
 给定一个初始金额和月开销数， 使用循环，确定剩下的金额和当月的支出数， 包括最后的支出数。 Payment() 函数会用到初始金额和月额度， 输出结果应该类似下面的格式（例子中的数字仅用于演示） ：  
 
@@ -412,15 +444,54 @@ Pymt#  Paid     Balance
 ```
 
 ```python
+def payment(arg1, arg2):
+	print('Amount Remaining')
+	print('Pymt#  Paid     Balance') 
+	print ('----- ------   ---------')
+	count = 0
+	paid = 0.00
+	balance = arg1
+	print('{}     $ {}     $ {}'.format(count, paid, balance))
+	while balance > paid:
+		count += 1
+		paid = arg2
+		balance = balance - paid
+		print('{}     $ {}     $ {}'.format(count, paid, balance))
+	count += 1
+	print('{}     $ {}     $ 0.00').format(count, balance)	
 
+if __name__ == '__main__':
+	n1 = float(raw_input('Enter opening balace: '))
+	n2 = float(raw_input('Enter monthly payment: '))
+	payment(n1, n2)
 ```
  
 ### 5-17 随机数
 熟读随机数模块然后解下面的题： 
-生成一个有 N 个元素的由随机数 n 组成的列表， 其中 N 和 n 的取值范围分别为： `(1 < N <= 100), (0 <= n <= 231  -1)`。然后再随机从这个列表中取 `N (1 <= N <= 100)`个随机数
-出来， 对它们排序，然后显示这个子集。 
+生成一个有 N 个元素的由随机数 n 组成的列表， 其中 N 和 n 的取值范围分别为： `(1 < N <= 100), (0 <= n <= 231  -1)`。
+然后再随机从这个列表中取 `N (1 <= N <= 100)`个随机数出来， 对它们排序，然后显示这个子集。 
 
 ```python
+import random
 
+N = random.randint(2, 100)
+k = 2 ** 31 - 1
+
+count = 0
+alist = []
+while count < N:
+	n = random.randint(0, k)
+	alist.append(n)
+	count += 1
+
+N2 = random.randint(1, 100)
+count2 = 0
+blist = []
+while count2 < N2:
+	n2 = random.choice(alist)
+	blist.append(n2)
+	count2 += 1
+blist.sort()
+print(blist)
 ```
-  
+ 

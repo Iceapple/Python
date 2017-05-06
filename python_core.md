@@ -510,8 +510,11 @@ str.find()，若不在 返回 -1
 可以识别 Python 关键字,对后一个要求,你可以使用 `keyword` 模块(特别是 `keyword.kelist`)来帮你. 
  
 ```python
-if True:
-	if myInput[0] in alphas 
+if myInput not in keword.kelist:
+	if myInput[0] in alphas
+
+
+（略）
 ```
 
 ### 6–3.   排序 
@@ -519,7 +522,15 @@ if True:
  (b) 跟 a 一样,不过要用字典序从大到小排列之. 
 
 ```python
-1
+(a) 留意这种一次输入多个数值的方法
+myInput = raw_input('numbers?').split(',')
+for i in range(0,len(myInput)):
+	myInput[i] = int(myInput[i])
+
+myInput.sort(reverse=True)
+print(myInput)
+
+(b)保持输入为字符？
 ``` 
  
 ### 6–4.   算术. 
@@ -527,7 +538,21 @@ if True:
 码应该可以计算出一个平均分,见练习 2-9 和练习 5-3. 
 
 ```python
+if __name__ == '__main__':
+	myList = []
+	while True:
+		try:
+			myInput1 = float(raw_input('input you score number1: '))
+			myList.append(myInput)
+		except:
+			print('invalid:')
+			break
 
+	s = 0.0
+	for i in myList:
+		s = s + i
+	ave = s / len(myList)
+	print('the ave is {}').format(ave)
 
 ```
 
